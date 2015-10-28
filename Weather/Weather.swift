@@ -68,4 +68,8 @@ class Weather {
         }
 
     }
+
+    init() {
+        
+    }
 }
