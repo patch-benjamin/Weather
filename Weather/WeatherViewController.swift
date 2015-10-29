@@ -11,13 +11,9 @@ import UIKit
 class WeatherViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
-
     @IBOutlet weak var cityLabel: UILabel!
-
     @IBOutlet weak var temperatureLabel: UILabel!
-
     @IBOutlet weak var conditionLabel: UILabel!
-
     @IBOutlet weak var windSpeedLabel: UILabel!
 
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -28,9 +24,9 @@ class WeatherViewController: UIViewController, UISearchBarDelegate {
 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.cityLabel.text = weather.cityName
-                    self.temperatureLabel.text = "Temperature: \(weather.tempC)℃"
+                    self.temperatureLabel.text = "\(weather.tempF)℉"
                     self.conditionLabel.text = weather.wxCondition
-                    self.windSpeedLabel.text = "Windspeed: \(weather.windSpeed)kph"
+                    self.windSpeedLabel.text = "wind \(weather.windSpeedMPH) mph"
                 })
             }
         }

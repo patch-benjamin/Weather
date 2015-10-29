@@ -29,8 +29,19 @@ class Weather {
             return tempK - 273.15
         }
     }
-
+    var tempF: Int {
+        get {
+            return Int(round(tempK * 1.8 - 459.67))
+        }
+    }
     var windSpeed: Float = 0.0
+
+    var windSpeedMPH: Int {
+        get {
+        return Int(round(windSpeed * 0.6214))
+        }
+    }
+
     var cityName: String = ""
 
     init (jsonDictionary: [String: AnyObject]) {
