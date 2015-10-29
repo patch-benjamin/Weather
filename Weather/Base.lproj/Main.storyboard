@@ -21,8 +21,11 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <animations/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="tru-wD-u7p" id="zdb-dB-RiT"/>
+                                </connections>
                             </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLe-2h-uqv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLe-2h-uqv">
                                 <rect key="frame" x="0.0" y="72" width="600" height="151"/>
                                 <animations/>
                                 <constraints>
@@ -78,6 +81,13 @@
                             <constraint firstItem="Pgt-7E-GUc" firstAttribute="top" secondItem="Td4-3l-7XV" secondAttribute="bottom" constant="8" symbolic="YES" id="yt5-DS-NwR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cityLabel" destination="bLe-2h-uqv" id="YNj-DG-RV4"/>
+                        <outlet property="conditionLabel" destination="Td4-3l-7XV" id="8Ux-WA-R0V"/>
+                        <outlet property="searchBar" destination="VYu-ZJ-a9r" id="i27-XN-kMb"/>
+                        <outlet property="temperatureLabel" destination="mMh-MT-flR" id="9G6-gh-G5h"/>
+                        <outlet property="windSpeedLabel" destination="Pgt-7E-GUc" id="etY-3l-dbZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fE4-cH-6fT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

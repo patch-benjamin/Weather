@@ -20,7 +20,6 @@ class Weather {
     static let windSpeedSuperKey = "wind" // Yields dictionary
     static let windSpeedKey = "speed" // Yields string
 
-    static let cityNameSuperKey = "sys" // Yields dictionary
     static let cityNameKey = "name" // Yields string
 
     var wxCondition: String = ""
@@ -30,6 +29,7 @@ class Weather {
             return tempK - 273.15
         }
     }
+
     var windSpeed: Float = 0.0
     var cityName: String = ""
 
@@ -61,14 +61,13 @@ class Weather {
 
         // Get City Name
 
-        if let cityNameSuperDictionary = jsonDictionary[Weather.cityNameSuperKey] as? [String: AnyObject] {
-            if let cityName = cityNameSuperDictionary [Weather.cityNameKey] as? String {
-                self.cityName = cityName
-            }
+        if let cityName = jsonDictionary[Weather.cityNameKey] as? String
+        {
+            self.cityName = cityName
         }
-
+        
     }
-
+    
     init() {
         
     }

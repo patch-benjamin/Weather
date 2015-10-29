@@ -12,13 +12,18 @@ class NetworkController {
 
     static let apiKey = "ca1c3fb65aa0e96d671d124200dbc579"
 
-    static let baseCityURL = "api.openweathermap.org/data/2.5/weather?q="
+    static let baseCityURL = "http://api.openweathermap.org/data/2.5/weather?q="
 
     //    static let baseZIPURL = "api.openweathermap.org/data/2.5/weather?zip="
 
     static func searchURL(searchNameString: String) -> NSURL {
         let escapedSearchNameString = searchNameString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet())
-        return NSURL(string: "\(baseCityURL)\(escapedSearchNameString)\(apiKey)")!
+
+        let urlString = "\(baseCityURL)\(escapedSearchNameString!)&appid=\(apiKey)"
+
+        print("URLSTRING: " + urlString)
+
+        return NSURL(string: urlString)!
     }
 
     static func dataAtURL(dataAtURL: NSURL, completion: (resultData: NSData?) -> Void) {

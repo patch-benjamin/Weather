@@ -8,7 +8,33 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController {
+class WeatherViewController: UIViewController, UISearchBarDelegate {
+
+    @IBOutlet weak var searchBar: UISearchBar!
+
+    @IBOutlet weak var cityLabel: UILabel!
+
+    @IBOutlet weak var temperatureLabel: UILabel!
+
+    @IBOutlet weak var conditionLabel: UILabel!
+
+    @IBOutlet weak var windSpeedLabel: UILabel!
+
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        let searchName = searchBar.text
+
+        WeatherController.sharedInstance.searchForWeather(searchName!) { (weather) -> Void in
+            if let weather = weather {
+
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.cityLabel.text = weather.cityName
+                    self.temperatureLabel.text = "Temperature: \(weather.tempC)℃"
+                    self.conditionLabel.text = weather.wxCondition
+                    self.windSpeedLabel.text = "Windspeed: \(weather.windSpeed)kph"
+                })
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,16 +46,16 @@ class WeatherViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
 
     /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
